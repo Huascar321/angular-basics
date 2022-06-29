@@ -6,6 +6,10 @@
       <app-servers></app-servers>
       <app-success></app-success>
       <app-warning></app-warning>
+      <hr>
+      <input type="text" [(ngModel)]="username" (input)="checkIfUsernameIsEmpty($event)">
+      <p>{{ username }}</p>
+      <button class="btn btn-primary" (click)="onResetUsername($event)" [disabled]="!isUsernameEmpty">Reset Username</button>
     </div>
   </div>
 </div>
