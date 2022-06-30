@@ -10,8 +10,6 @@ export class AppComponent {
   isUsernameEmpty: boolean = false;
   isDisplaying: boolean = false;
   buttonClicks: string[] = [];
-  counter: number = 0;
-  areFiveElements: boolean = false;
 
   onResetUsername(event: Event) {
     this.username = '';
@@ -28,15 +26,8 @@ export class AppComponent {
   }
 
   private registerButtonClicks(event: Event): void {
-    this.counter === 4 ? this.areFiveElements = true : false;
     let toDate = new Date(event.timeStamp);
     let data = `${toDate.getMinutes()}:${toDate.getUTCSeconds()}`
     this.buttonClicks.push(data);
-    this.counter++;
   }
-
-  getColor(): string {
-    return this.areFiveElements ? 'blue' : '' ;
-  }
-
 }
