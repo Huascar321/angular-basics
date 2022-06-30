@@ -5,10 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'servers.component.html',
   styleUrls: ['./servers.component.scss']
 })
+
 export class ServersComponent implements OnInit {
   allowNewServer: boolean = false;
   serverCreationStatus: string = 'No server was created';
-  serverName:string = 'Test-server';
+  serverName: string = 'Test-server';
+  serverCreated: boolean = false;
+  servers = ['Testserver', 'testserver2'];
 
   constructor() {
     setTimeout(() => {
@@ -20,11 +23,12 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer() {
+    this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
   }
 
   onUpdateServerName(event: Event): void {
     this.serverName = (<HTMLInputElement>event.target).value;
   }
-
 }

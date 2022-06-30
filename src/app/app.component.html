@@ -10,6 +10,10 @@
       <input type="text" [(ngModel)]="username" (input)="checkIfUsernameIsEmpty($event)">
       <p>{{ username }}</p>
       <button class="btn btn-primary" (click)="onResetUsername($event)" [disabled]="!isUsernameEmpty">Reset Username</button>
+      <hr>
+      <button class="btn btn-primary" (click)="showHidden($event)">Display Details</button>
+      <p *ngIf="isDisplaying">Secret: Password = tune</p>
+      <p [ngStyle]="{backgroundColor: getColor()}" *ngFor="let clicInfo of buttonClicks">{{ buttonClicks }}</p>
     </div>
   </div>
 </div>
